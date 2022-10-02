@@ -1,0 +1,26 @@
+li a.current_page {
+  color: #3366ff;
+  border-bottom: 3px solid #3366ff;
+}
+
+.ava-container {
+  border: 2px solid transparent;
+  background: linear-gradient(to right, #3366ff, #2395ff, #2395ff, #884dff);
+  border-radius: 50px;
+}
+
+.ava-img {
+  padding: 1px;
+  width: 50px;
+  height: 50px;
+}
+
+.user-name {
+  color: #373a42;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-nodecor {
+  text-decoration: none;
+}
