@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/LandingPage/example";
 import NotFound from "./pages/NotFound";
-import Signin from "./pages/Signin";
+import Signin from "./pages/Signin/index";
 import Signup from "./pages/Signup";
 import DetailPage from "./pages/Detail";
 import OrderPage from "./pages/Order";

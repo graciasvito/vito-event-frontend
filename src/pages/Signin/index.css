@@ -7,25 +7,6 @@
   /*box-sizing: border-box;*/
 }
 
-/* LEFT CONTAINER */
-
-.container-color {
-  background-color: #3366ff;
-}
-
-.left-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  width: 450px;
-  height: 350px;
-}
-
 /* RIGHT CONTAINER */
 
 .input-container {
@@ -91,4 +72,8 @@
   footer {
     display: none;
   }
+}
+
+.tes {
+  background-color: black !important;
 }
