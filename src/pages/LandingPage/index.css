@@ -1,1 +1,60 @@
+.landing-body {
+  overflow: hidden;
+}
 
+.landing-main-event {
+  border: 2px solid #ff3d7125;
+  width: 150px;
+  background-color: #ff3d7125;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.landing-strike {
+  display: block;
+  text-align: right;
+  /* overflow: hidden; */
+  white-space: nowrap;
+}
+
+.landing-strike > span {
+  position: relative;
+  display: inline-block;
+}
+
+.landing-strike > span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 25px;
+  height: 1px;
+  background: #ff3d71;
+}
+
+.landing-strike > span:before {
+  right: 80%;
+  margin-right: 15px;
+}
+
+.landing-strike span {
+  color: #ff3d71;
+  font-size: 14px;
+  margin-left: 25px;
+}
+
+.landing-overflow {
+  margin-left: 100px;
+  overflow: hidden;
+}
+
+.tes {
+  background-color: black;
+}
+
+@media only screen and (max-width: 767px) {
+  .landing-overflow {
+    overflow: auto;
+  }
+}

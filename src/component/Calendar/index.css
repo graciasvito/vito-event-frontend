@@ -1,0 +1,27 @@
+.calendar {
+  margin-top: 100px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.non-active {
+  border: none;
+  width: 60px;
+  height: 85px;
+  border-radius: 15px;
+  background-color: white;
+  padding: 10px;
+}
+
+.active {
+  border: 2px solid #ff8900;
+}
+
+.dot {
+  height: 7px;
+  width: 7px;
+  background-color: #ff8900;
+  border-radius: 50%;
+  display: flex;
+  margin: auto;
+}

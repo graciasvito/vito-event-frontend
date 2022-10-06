@@ -17,12 +17,13 @@ function Signin() {
   const handleLogin = async () => {
     try {
       const result = await axios.post("auth/login", form);
+      console.log(result.data.data.username);
       localStorage.setItem("userId", result.data.data.userId);
       localStorage.setItem("token", result.data.data.token);
+      localStorage.setItem("name", result.data.data.name);
       alert(result.data.message);
       navigate("/");
     } catch (error) {
-      console.log(error);
       alert(error.response.data.message);
     }
   };
@@ -54,15 +55,6 @@ function Signin() {
               </p>
               <p className="fs-6">Hi, Welcome back to Urticket!</p>
               <form>
-                {/* <div className="mb-3 rounded-pill">
-                  <input
-                    type="text"
-                    className="form-control"
-                    aria-describedby="emailHelp"
-                    placeholder="Username"
-                    onChange={handleChangeForm}
-                  />{" "}
-                </div> */}
                 <div className="mb-3">
                   <input
                     type="email"

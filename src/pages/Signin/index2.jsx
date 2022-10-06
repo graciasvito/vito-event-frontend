@@ -14,10 +14,12 @@ export default function Signin() {
     try {
       const result = await axios.post("auth/login", form);
       localStorage.setItem("idUser", result.data.data.userId);
+      localStorage.setItem("name", result.data.data.name);
       localStorage.setItem("token", result.data.data.token);
       alert(result.data.message);
       navigate("/");
     } catch (error) {
+      console.log(error);
       alert(error.response.data.message);
     }
   };

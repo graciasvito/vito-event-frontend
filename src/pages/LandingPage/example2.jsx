@@ -1,3 +1,6 @@
+import Footer from "../../component/Footer";
+import Header from "../../component/Header";
+
 import { useEffect, useState } from "react";
 import CardEvent from "../../component/CardEvent";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +30,7 @@ function LandingPage() {
   const getDataProduct = async () => {
     try {
       const result = await axios.get(
-        `product?searchName=&sort=&limit=4&page=${page}&searchDateCreated=`
+        `event?page=${page}&limit=2&searchName=&sort=name asc&searchDateShow=`
       );
       // console.log(result);
       setData(result.data.data);
@@ -51,6 +54,7 @@ function LandingPage() {
 
   return (
     <>
+      <Header />
       <main className="container d-flex gap-3 ">
         {data.length > 0 ? (
           data.map((item) => (
@@ -84,6 +88,7 @@ function LandingPage() {
           &gt;
         </button>
       </div>
+      <Footer />
     </>
   );
 }

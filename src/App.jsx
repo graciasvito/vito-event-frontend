@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import LandingPage from "./pages/LandingPage/example";
+import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
 import Signin from "./pages/Signin/index";
 import Signup from "./pages/Signup";
@@ -17,7 +17,7 @@ function App() {
         {/*MAIN*/}
         <Route path="/" element={<LandingPage />} />
         {/*Detail*/}
-        <Route path="/detail" element={<DetailPage />} />
+        <Route path="/detail/:eventId" element={<DetailPage />} />
         {/*Order*/}
         <Route path="/order" element={<OrderPage />} />
         {/* PAGE NOT FOUND */}
