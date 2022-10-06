@@ -7,7 +7,6 @@ import moment from "moment/moment";
 // import eventA from "../../assets/image/Event A.png";
 
 function CardEvent(props) {
-  console.log(props);
   const navigate = useNavigate();
 
   const handleDetail = () => {
