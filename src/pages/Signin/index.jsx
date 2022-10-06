@@ -17,10 +17,8 @@ function Signin() {
   const handleLogin = async () => {
     try {
       const result = await axios.post("auth/login", form);
-      console.log(result.data.data.username);
       localStorage.setItem("userId", result.data.data.userId);
       localStorage.setItem("token", result.data.data.token);
-      localStorage.setItem("name", result.data.data.name);
       alert(result.data.message);
       navigate("/");
     } catch (error) {

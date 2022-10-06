@@ -11,7 +11,9 @@ function Detail(props) {
           <img src={EventA} alt="event image" className="image" />
         </div>
         <p className="fs-5 fw-bold mt-4 query-wishlist">
-          <ion-icon name="heart-outline"></ion-icon>
+          <span>
+            <ion-icon name="heart-outline"></ion-icon>
+          </span>
           Add to Wishlist
         </p>
       </div>

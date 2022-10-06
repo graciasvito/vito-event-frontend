@@ -3,19 +3,24 @@ import avatar from "../../assets/image/Avatar.png";
 import { Link, useNavigate } from "react-router-dom";
 import "../Header/index.css";
 import React from "react";
-
+import axios from "../../utils/axios";
 function Header() {
   const navigate = useNavigate();
   const isLogin = localStorage.getItem("token");
-  const name = localStorage.getItem("name");
+  const userId = localStorage.getItem("userId");
 
   const handleNavigate = (nav) => {
     navigate(`/${nav}`);
   };
+  axios.get(`user/${userId}`).then((response) => {
+    localStorage.setItem("name", response.data.data[0].name);
+  });
+
+  const name = localStorage.getItem("name");
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-white">
+      <nav className="navbar navbar-expand-lg bg-white header-container">
         <div className="container">
           <a className="navbar-brand" href="/index.html">
             <img src={logo} alt="" width="150" height="60" />

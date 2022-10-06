@@ -1,3 +1,7 @@
+.header-container {
+  max-height: 90px;
+}
+
 li a.current_page {
   color: #3366ff;
   border-bottom: 3px solid #3366ff;

@@ -2,7 +2,7 @@ import moment from "moment/moment";
 import { useEffect, useState } from "react";
 import "../Calendar/index.css";
 
-export default function Calendar() {
+export default function Calendar(props) {
   const [dateShow, setDateShow] = useState(moment().format("YYYY-MM-DD")); // 2022-10-04
   const [listDateShow, setListDateShow] = useState([]);
 
@@ -23,9 +23,8 @@ export default function Calendar() {
 
   const selectDate = (date) => {
     setDateShow(date);
+    props.selectDate(date);
   };
-
-  console.log("DATE ACTIVE = " + dateShow);
 
   return (
     <div className="calendar">

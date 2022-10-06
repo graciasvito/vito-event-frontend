@@ -2,7 +2,7 @@ import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import "../Detail/index.css";
 import axios from "../../utils/axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import React from "react";
 
@@ -11,18 +11,34 @@ import Attendees from "../../component/Attendees";
 import moment from "moment/moment";
 
 function DetailPage() {
+  const navigate = useNavigate();
+  const userId = localStorage.getItem("userId");
+
   const { eventId } = useParams();
   const [data, setData] = useState([]);
+  const [wishlist, setWishlist] = useState("");
 
   useEffect(() => {
     getEventById();
   }, []);
 
+  const handleWishlist = async () => {
+    try {
+      const result = await axios.post("wishlist", {
+        eventId: eventId,
+        userId: userId,
+      });
+      setWishlist(result.data.data[0].wishlistId);
+    } catch (error) {
+      // console.error(error);
+    }
+  };
+
+  console.log(wishlist);
   const getEventById = async () => {
     try {
       const result = await axios.get(`event/${eventId}`);
       setData(result.data.data);
-      console.log(result.data.data);
     } catch (error) {
       console.log("error" + error);
     }
@@ -30,6 +46,13 @@ function DetailPage() {
 
   const eventDate = data[0] ? data[0].dateTimeShow : "";
 
+  const handleOrder = () => {
+    navigate("/order", {
+      state: {
+        eventId: eventId,
+      },
+    });
+  };
   return (
     <>
       <div className="detail-body">
@@ -49,7 +72,13 @@ function DetailPage() {
               />
             </div>
             <p className="fs-5 fw-bold mt-4 query-wishlist">
-              <ion-icon name="heart-outline"></ion-icon>
+              <span onClick={handleWishlist}>
+                {wishlist === "" ? (
+                  <ion-icon name="heart-outline"></ion-icon>
+                ) : (
+                  <ion-icon name="heart"></ion-icon>
+                )}
+              </span>
               Add to Wishlist
             </p>
           </div>
@@ -87,13 +116,9 @@ function DetailPage() {
               <button
                 className="btn btn-primary shadow-lg buy-button"
                 type="button"
+                onClick={handleOrder}
               >
-                <a
-                  href="/Order/order.html"
-                  className="link-nodecor text-white fw-bold"
-                >
-                  Buy Tickets
-                </a>
+                Buy Tickets
               </button>
             </article>
           </div>{" "}

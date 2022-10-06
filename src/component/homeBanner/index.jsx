@@ -1,8 +1,14 @@
+import React, { useState } from "react";
 import bannerBackground from "../../assets/image/Banner Background.png";
 import imageBanner from "../../assets/image/img banner.png";
 import "../homeBanner/index.css";
 
-export default function Banner() {
+export default function Banner(props) {
+  const [keyword, setKeyword] = useState("");
+
+  const handleSearch = () => {
+    props.handleSearch(keyword);
+  };
   return (
     <>
       <section className="home-banner">
@@ -24,6 +30,9 @@ export default function Banner() {
                 name="srch-term"
                 id="srch-term1"
                 type="text"
+                onChange={(e) => {
+                  setKeyword(e.target.value);
+                }}
               />
               <ion-icon name="location-outline" class="home-icon"></ion-icon>
               <input
@@ -34,7 +43,11 @@ export default function Banner() {
                 type="text"
               />
               <div className="input-group-btn">
-                <button className="btn home-button-color me-3" type="button">
+                <button
+                  className="btn home-button-color me-3"
+                  type="button"
+                  onClick={handleSearch}
+                >
                   <ion-icon
                     name="arrow-forward-outline"
                     class="pt-2 arrow-icon"

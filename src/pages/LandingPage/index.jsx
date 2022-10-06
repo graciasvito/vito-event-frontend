@@ -7,12 +7,23 @@ import axios from "../../utils/axios";
 import Banner from "../../component/homeBanner";
 import Calendar from "../../component/Calendar";
 import "../LandingPage/index.css";
+import moment from "moment/moment";
 
 function LandingPage() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [pagination, setPagination] = useState({});
   const [page, setPage] = useState(1);
+  const [searchName, setSearchName] = useState("");
+  const [dateSearch, setDateSearch] = useState(moment().format("YYYY-MM-DD"));
+
+  const handleSearch = (keyword) => {
+    setSearchName(keyword);
+  };
+  const selectDate = (date) => {
+    setDateSearch(date);
+  };
+
   // DIGUNAKAN UNTUK GET DATA PERTAMA KALI
   useEffect(() => {
     getDataProduct();
@@ -21,14 +32,13 @@ function LandingPage() {
   // DIGUNAKAN UNTUK GET DATA JIKA ADA PERUBAHAN STATE
   useEffect(() => {
     getDataProduct();
-  }, [page]);
+  }, [page, searchName, dateSearch]);
 
   const getDataProduct = async () => {
     try {
       const result = await axios.get(
-        `event?page=${page}&limit=5&searchName=&sort=name asc&searchDateShow=`
+        `event?page=${page}&limit=5&searchName=${searchName}&sort=name asc&searchDateShow=${dateSearch}`
       );
-      console.log(result.data.data);
       setData(result.data.data);
       setPagination(result.data.pagination);
     } catch (error) {
@@ -54,7 +64,7 @@ function LandingPage() {
         {/* HEADER */}
         <Header />
         {/* BANNER */}
-        <Banner />
+        <Banner handleSearch={handleSearch} />
 
         <div className="landing-main-event mt-5">
           <div className="landing-strike">
@@ -63,7 +73,7 @@ function LandingPage() {
         </div>
 
         {/* CALENDAR */}
-        <Calendar />
+        <Calendar selectDate={selectDate} />
         {/* CARD */}
 
         <main className="container-fluid d-flex gap-3 landing-overflow">
