@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Header/index.css";
 import React from "react";
 import axios from "../../utils/axios";
+
 function Header() {
   const navigate = useNavigate();
   const isLogin = localStorage.getItem("token");
@@ -19,7 +20,7 @@ function Header() {
   const name = localStorage.getItem("name");
 
   return (
-    <div>
+    <div className="header-body tes">
       <nav className="navbar navbar-expand-lg bg-white header-container">
         <div className="container">
           <a className="navbar-brand" href="/index.html">

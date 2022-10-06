@@ -122,7 +122,7 @@ function Signin() {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer className="sign-footer" />
     </>
   );
 }

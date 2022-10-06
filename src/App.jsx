@@ -5,7 +5,7 @@ import NotFound from "./pages/NotFound";
 import Signin from "./pages/Signin/index";
 import Signup from "./pages/Signup";
 import DetailPage from "./pages/Detail";
-import OrderPage from "./pages/Order/example";
+import OrderPage from "./pages/Order";
 function App() {
   return (
     <BrowserRouter>

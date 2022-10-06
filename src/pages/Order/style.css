@@ -23,11 +23,6 @@
   justify-content: center;
 }
 
-.card {
-  width: 1126px;
-  display: flex;
-}
-
 .rotate-seat {
   transform: rotate(-45deg);
 }

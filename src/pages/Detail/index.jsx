@@ -68,10 +68,9 @@ function DetailPage() {
                   data[0] ? data[0].image : ""
                 }`}
                 alt="event image"
-                className="image"
               />
             </div>
-            <p className="fs-5 fw-bold mt-4 query-wishlist">
+            <p className="fs-5 fw-bold mt-4 detail-query-wishlist">
               <span onClick={handleWishlist}>
                 {wishlist === "" ? (
                   <ion-icon name="heart-outline"></ion-icon>
@@ -82,23 +81,23 @@ function DetailPage() {
               Add to Wishlist
             </p>
           </div>
-          <div className="container-fluid col-xl-7 detail-right-container">
-            <div className="query-text--overlay ">
-              <div className="detail-title-content content-color">
+          <div className="container-fluid col-xl-7">
+            <div className="detail-query-text--overlay ">
+              <div className="detail-title-content detail-content-color">
                 <h4 className="fw-bold">{data[0] ? data[0].name : ""}</h4>
               </div>
               <div className="detail-information">
-                <p className="content-color">
+                <p className="detail-content-color">
                   <ion-icon name="location-outline" class="icon"></ion-icon>
                   {data[0] ? data[0].location : ""}
                 </p>
-                <p className="detail-time content-color">
+                <p className="detail-time detail-content-color">
                   <ion-icon name="time-outline" class="icon"></ion-icon>
                   {moment(eventDate).format("llll")}
                 </p>
               </div>
-              <p className="content-color">Attendees</p>
-              <div className="attendants d-flex">
+              <p className="detail-content-color">Attendees</p>
+              <div className="detail-attendants d-flex">
                 <Attendees />
               </div>
             </div>
@@ -109,12 +108,12 @@ function DetailPage() {
               <a href="#" className="link-nodecor">
                 Read More
               </a>
-              <div className="location">
+              <div>
                 <h5 className="fw-bold mt-5">Location</h5>
                 <img src={Map} className="mt-3" alt="" />
               </div>
               <button
-                className="btn btn-primary shadow-lg buy-button"
+                className="btn btn-primary shadow-lg detail-buy-button"
                 type="button"
                 onClick={handleOrder}
               >
@@ -124,7 +123,7 @@ function DetailPage() {
           </div>{" "}
         </section>
         {/* FOOTER */}
-        <Footer />
+        <Footer className="detail-footer" />
       </div>
     </>
   );

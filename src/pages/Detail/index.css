@@ -48,6 +48,9 @@
   margin-left: 100px;
 }
 
+.detail-query-wishlist {
+  margin-right: 75px;
+}
 h5 {
   font-size: 30px;
 }
@@ -55,7 +58,7 @@ article a {
   font-size: 13px;
 }
 
-.attendants {
+.detail-attendants {
   width: 120px;
   margin-bottom: 25px;
 }
@@ -76,7 +79,7 @@ article a {
   font-size: 10px;
 }
 
-.buy-button {
+.detail-buy-button {
   width: 300px;
   margin-top: 35px;
 }
@@ -92,7 +95,7 @@ article a {
     background-color: inherit;
     margin-top: 50px;
   }
-  .query-wishlist {
+  .detail-query-wishlist {
     display: none;
   }
 
@@ -111,60 +114,14 @@ article a {
   .detail-time {
     margin-left: 0;
   }
-  .content-color {
+  .detail-content-color {
     font-weight: bold;
     color: black;
   }
 
-  .query-text--overlay {
+  /* .detail-query-text--overlay {
     position: absolute;
-  }
-
-  article {
-    text-align: center;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  /* Main */
-  .section-container {
-    display: inline;
-    border: none;
-    width: 50px;
-    height: 850px;
-    border-radius: none;
-    background-color: inherit;
-    margin-top: 50px;
-  }
-  .query-wishlist {
-    display: none;
-  }
-
-  .left-content {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-  }
-  .information {
-    display: inline;
-  }
-
-  .information p .icon {
-    color: rgb(205, 101, 101);
-  }
-  .time {
-    margin-left: 0;
-  }
-  .content-color {
-    font-weight: bold;
-    color: white;
-  }
-
-  .query-text--overlay {
-    position: absolute;
-    top: 200px;
-    left: 100px;
-  }
+  } */
 
   article {
     text-align: center;
@@ -173,7 +130,8 @@ article a {
 
 @media only screen and (min-width: 768px) and (max-width: 911px) {
   /* Main */
-  .section-container {
+
+  .detail-section-container {
     display: inline;
     border: none;
     width: 50px;
@@ -182,17 +140,21 @@ article a {
     background-color: inherit;
     margin-top: 50px;
   }
-  .query-wishlist {
+  .detail-query-wishlist {
     display: none;
   }
 
-  .left-content {
+  .detail-left-content {
     display: flex;
     justify-content: center;
     margin-top: 100px;
   }
-  .information {
+  .detail-information {
     display: inline;
+  }
+
+  .detail-time {
+    margin-left: 0;
   }
 
   .information p .icon {
@@ -201,15 +163,15 @@ article a {
   .time {
     margin-left: 0;
   }
-  .content-color {
+  .detail-content-color {
     font-weight: bold;
     color: white;
   }
 
-  .query-text--overlay {
+  .detail-query-text--overlay {
     position: absolute;
-    top: 200px;
-    left: 270px;
+    top: -415px;
+    left: 250px;
   }
 
   article {
@@ -228,9 +190,6 @@ article a {
     background-color: inherit;
     margin-top: 50px;
   }
-  .query-wishlist {
-    display: none;
-  }
 
   .left-content {
     display: flex;
@@ -247,16 +206,9 @@ article a {
   .time {
     margin-left: 0;
   }
-  .content-color {
+  .detail-content-color {
     font-weight: bold;
-    color: white;
-  }
-
-  .query-text--overlay {
-    background-color: black !important;
-    position: absolute;
-    top: 200px;
-    left: 350px;
+    color: black;
   }
 
   article {

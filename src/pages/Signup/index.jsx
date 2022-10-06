@@ -119,7 +119,7 @@ function Signup() {
         </div>
       </div>
       {/* FOOTER */}
-      <Footer />
+      <Footer className="sign-footer" />
     </>
   );
 }

@@ -67,7 +67,7 @@ export default function Footer() {
                   href="#"
                   className="text-decoration-none text-muted font-footer2 mt-1 ms-1"
                 >
-                  create Event
+                  Create Event
                 </a>
                 <a
                   href="#"
