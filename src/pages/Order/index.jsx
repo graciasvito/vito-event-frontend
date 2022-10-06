@@ -9,17 +9,19 @@ import Purple from "../../assets/image/Purple ticket.png";
 import { useLocation } from "react-router-dom";
 import Counter from "../../component/Counter";
 import axios from "../../utils/axios";
+import { useState } from "react";
 
 function OrderPage() {
   const { state } = useLocation();
-  console.log(state.eventId);
+  const [bookingSection, setBookingSection] = useState({});
 
   const getDataSection = async () => {
     try {
       const result = await axios.get(`booking/section/${state.eventId}`);
-      console.log(result);
+      setBookingSection(result);
+      setBookingSection(bookingSection);
     } catch (error) {
-      console.log(error);
+      setBookingSection(error);
     }
   };
   return (

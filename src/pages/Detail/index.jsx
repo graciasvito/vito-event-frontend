@@ -34,13 +34,12 @@ function DetailPage() {
     }
   };
 
-  console.log(wishlist);
   const getEventById = async () => {
     try {
       const result = await axios.get(`event/${eventId}`);
       setData(result.data.data);
     } catch (error) {
-      console.log("error" + error);
+      setData(error);
     }
   };
 
