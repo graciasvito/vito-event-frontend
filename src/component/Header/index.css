@@ -1,11 +1,4 @@
-.header-body {
-  z-index: 99;
-}
-
-.header-container {
-  max-height: 90px;
-}
-
+/* nav */
 li a.current_page {
   color: #3366ff;
   border-bottom: 3px solid #3366ff;
@@ -21,12 +14,15 @@ li a.current_page {
   padding: 1px;
   width: 50px;
   height: 50px;
+  border-radius: 50%;
 }
 
 .user-name {
   color: #373a42;
   justify-content: center;
   align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .link-nodecor {

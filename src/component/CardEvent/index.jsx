@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
 import "../../component/CardEvent/index.css";
 import Attendees from "../../component/Attendees";
 import moment from "moment/moment";
@@ -13,8 +14,9 @@ function CardEvent(props) {
     navigate(`/detail/${props.data.eventId}`);
   };
   let eventDate = moment(props.data.dateTimeShow).format("LLLL");
+
   return (
-    <a href="#" onClick={handleDetail}>
+    <a onClick={handleDetail}>
       <div className="card card-size ">
         {/* https://res.cloudinary.com/du0sbrocy/image/upload/v1663640826/Vito%20event%20org%20backend/ */}
         <img

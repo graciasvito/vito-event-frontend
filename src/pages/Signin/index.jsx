@@ -5,8 +5,11 @@ import Logo from "../../assets/image/Wetick.png";
 import axios from "../../utils/axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getDataUser } from "../../store/action/user";
 
 function Signin() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
@@ -17,12 +20,15 @@ function Signin() {
   const handleLogin = async () => {
     try {
       const result = await axios.post("auth/login", form);
-      localStorage.setItem("userId", result.data.data.userId);
+      dispatch(getDataUser(result.data.data.userId));
+      // localStorage.setItem("userId", result.data.data.userId);
       localStorage.setItem("token", result.data.data.token);
+      localStorage.setItem("refreshToken", result.data.data.refreshToken);
       alert(result.data.message);
       navigate("/");
     } catch (error) {
       alert(error.response.data.message);
+      //   console.error(error.response);
     }
   };
 

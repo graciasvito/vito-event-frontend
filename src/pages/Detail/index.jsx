@@ -16,7 +16,9 @@ function DetailPage() {
 
   const { eventId } = useParams();
   const [data, setData] = useState([]);
-  const [wishlist, setWishlist] = useState("");
+  const [wishlist, setWishlist] = useState(
+    localStorage.getItem(`eventId:${eventId}, userId: ${userId}`)
+  );
 
   useEffect(() => {
     getEventById();
@@ -29,6 +31,24 @@ function DetailPage() {
         userId: userId,
       });
       setWishlist(result.data.data[0].wishlistId);
+      localStorage.setItem(
+        `eventId:${eventId}, userId: ${userId}`,
+        result.data.data[0].wishlistId
+      );
+    } catch (error) {
+      // console.error(error);
+    }
+  };
+
+  let wishlistId = localStorage.getItem(
+    `eventId:${eventId}, userId: ${userId}`
+  );
+
+  const handleDeleteWishlist = async () => {
+    try {
+      await axios.delete(`wishlist/${wishlistId}`);
+      setWishlist(null);
+      localStorage.removeItem(`eventId:${eventId}, userId: ${userId}`);
     } catch (error) {
       // console.error(error);
     }
@@ -37,6 +57,7 @@ function DetailPage() {
   const getEventById = async () => {
     try {
       const result = await axios.get(`event/${eventId}`);
+
       setData(result.data.data);
     } catch (error) {
       setData(error);
@@ -70,11 +91,17 @@ function DetailPage() {
               />
             </div>
             <p className="fs-5 fw-bold mt-4 detail-query-wishlist">
-              <span onClick={handleWishlist}>
-                {wishlist === "" ? (
-                  <ion-icon name="heart-outline"></ion-icon>
+              <span>
+                {wishlist === null ? (
+                  <ion-icon
+                    name="heart-outline"
+                    onClick={handleWishlist}
+                  ></ion-icon>
                 ) : (
-                  <ion-icon name="heart"></ion-icon>
+                  <ion-icon
+                    name="heart"
+                    onClick={handleDeleteWishlist}
+                  ></ion-icon>
                 )}
               </span>
               Add to Wishlist
