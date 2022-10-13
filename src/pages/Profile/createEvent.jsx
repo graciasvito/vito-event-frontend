@@ -13,7 +13,6 @@ export default function CreateEvent() {
   const [pagination, setPagination] = useState({});
   const [page, setPage] = useState(1);
 
-  console.log(setPage, pagination);
   useEffect(() => {
     getDataProduct();
   }, []);
@@ -38,13 +37,13 @@ export default function CreateEvent() {
     navigate(`/detail/${eventId}`);
   };
 
-  // const handlePrevPage = () => {
-  //   setPage(page - 1);
-  // };
+  const handlePrevPage = () => {
+    setPage(page - 1);
+  };
 
-  // const handleNextPage = () => {
-  //   setPage(page + 1);
-  // };
+  const handleNextPage = () => {
+    setPage(page + 1);
+  };
 
   return (
     <>
@@ -74,6 +73,22 @@ export default function CreateEvent() {
                 </div>
               )}
             </main>
+            <div className="d-flex gap-2 justify-content-center w-100 my-5">
+              <button
+                className="btn btn-primary"
+                onClick={handlePrevPage}
+                disabled={page === 1 ? true : false}
+              >
+                &lt;
+              </button>
+              <button
+                className="btn btn-primary"
+                onClick={handleNextPage}
+                disabled={page === pagination.totalPage ? true : false}
+              >
+                &gt;
+              </button>
+            </div>
           </div>
         </section>
 
