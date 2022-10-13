@@ -1,0 +1,94 @@
+.profile-body {
+  background-color: #f4f7ff;
+}
+.profile-section-container {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Right */
+.right-section-container {
+  width: 900px;
+  height: 700px;
+  background-color: white;
+  border-radius: 50px;
+  /* margin-right: 50px; */
+}
+
+.profile-information-container {
+  width: 800px;
+  height: 700px;
+  margin: 50px 50px;
+}
+
+.information-profile {
+  width: 400px;
+  height: 500px;
+}
+
+.param-info {
+  width: 30%;
+}
+
+.param-margin {
+  margin-top: 50px;
+}
+
+.value-margin {
+  margin-top: 35px;
+}
+
+.value-margin-first {
+  margin-top: 40px;
+}
+
+.button-modal {
+  border: none;
+  align-items: flex-start;
+  margin-top: -15px;
+}
+
+.value-info {
+  margin-left: 80px;
+}
+
+.birthday {
+  margin-top: 45px;
+}
+
+.profile-card {
+  border: none !important;
+  width: 300px;
+  height: 300px;
+}
+
+.profile-img-container {
+  border: 3px solid transparent;
+  border-color: #2395ff;
+  border-radius: 100%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.profile-card-button {
+  width: 100%;
+}
+
+.update-button {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.tes {
+  background-color: black;
+}

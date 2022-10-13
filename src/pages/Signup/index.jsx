@@ -41,11 +41,11 @@ function Signup() {
         <div className="row">
           <LeftContainer />
           <div className="col-md-5 col-sm-12 right-container">
-            <div className="container row contain">
+            <div className="contain">
               <div className="logo-contain mt-auto">
                 <img src={Logo} className="logo" alt="" />
               </div>
-              <p className="fs-5 fw-bold mt-auto">
+              <p className="font-size-5 font-weight-bold mt-5">
                 Sign Up <br />
               </p>
               <p className="fs-6">

@@ -17,7 +17,7 @@ function CardEvent(props) {
 
   return (
     <a onClick={handleDetail}>
-      <div className="card card-size ">
+      <div className="card card-size mr-5 mt-5">
         {/* https://res.cloudinary.com/du0sbrocy/image/upload/v1663640826/Vito%20event%20org%20backend/ */}
         <img
           className="card-img-top card-img-size"

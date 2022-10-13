@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 
-.bg-grey {
-  background-color: #c1c5d0;
+.order-background {
+  background-color: #f4f7ff;
 }
 
 .container {
@@ -15,8 +15,18 @@
   justify-content: center;
 }
 
+.order-section-container {
+  display: flex;
+  border: 5px solid white;
+  width: 85%;
+  height: 500px;
+  border-radius: 25px;
+  background-color: white;
+  margin-top: 50px;
+}
+
 .example-card {
-  width: 1126px;
+  width: 1000px;
   display: flex;
 }
 

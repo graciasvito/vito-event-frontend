@@ -4,7 +4,7 @@ import "../Footer/index.css";
 export default function Footer() {
   return (
     <div>
-      <footer>
+      <footer className="mt-5">
         <div className="row">
           <div className="col-sm ">
             <img src={logo} alt="Logo" />

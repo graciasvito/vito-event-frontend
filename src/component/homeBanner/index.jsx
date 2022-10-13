@@ -44,7 +44,7 @@ export default function Banner(props) {
               />
               <div className="input-group-btn">
                 <button
-                  className="btn home-button-color me-3"
+                  className="btn home-button-color mr-3"
                   type="button"
                   onClick={handleSearch}
                 >

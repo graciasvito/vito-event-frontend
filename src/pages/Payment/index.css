@@ -1,0 +1,13 @@
+.payment-body {
+  background-color: #f4f7ff;
+}
+
+.payment-section-container {
+  display: flex;
+  border: 5px solid white;
+  width: 85%;
+  height: 500px;
+  border-radius: 25px;
+  background-color: white;
+  margin-top: 50px;
+}

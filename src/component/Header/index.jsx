@@ -1,10 +1,9 @@
 import logo from "../../assets/image/Wetick.png";
-// import avatar from "../../assets/image/Avatar.png";
 import { Link, useNavigate } from "react-router-dom";
 import "../Header/index.css";
 import React from "react";
-// import axios from "../../utils/axios";
 import { useSelector } from "react-redux";
+import axios from "../../utils/axios";
 
 function Header() {
   const navigate = useNavigate();
@@ -14,19 +13,32 @@ function Header() {
     "https://res.cloudinary.com/du0sbrocy/image/upload/v1663819188";
   const profileImage = user.data.image;
   const isLogin = localStorage.getItem("token");
-  // const userId = localStorage.getItem("userId");
+  const refreshToken = localStorage.getItem("refreshToken");
 
   const handleNavigate = (nav) => {
     navigate(`/${nav}`);
   };
-  // axios.get(`user/${userId}`).then((response) => {
-  //   localStorage.setItem("name", response.data.data[0].name);
-  // });
 
-  // const name = localStorage.getItem("name");
+  const handleProfile = () => {
+    navigate("/profile/edit-profile");
+  };
+
+  const handleLogOut = async () => {
+    try {
+      const result = await axios.post("auth/logout", {
+        refreshToken: refreshToken,
+      });
+      localStorage.removeItem("refreshToken");
+      localStorage.removeItem("token");
+      alert(result.data.message);
+      navigate("/signin");
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
 
   return (
-    <div className="header-body tes">
+    <div className="header-body ">
       <nav className="navbar navbar-expand-lg navbar-light bg-white header-body">
         <a className="navbar-brand" href="/">
           <img src={logo} alt="" width="150" height="60" />
@@ -51,7 +63,7 @@ function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/detail" className="nav-link">
+              <Link to="/create-event" className="nav-link">
                 Create Event
               </Link>
             </li>
@@ -66,9 +78,9 @@ function Header() {
             {isLogin ? (
               <>
                 <a
-                  href="#"
                   className="mt-2 ava-container"
                   style={{ cursor: "pointer" }}
+                  onClick={handleProfile}
                 >
                   <img
                     src={`${imgSource}/${profileImage}`}
@@ -76,10 +88,16 @@ function Header() {
                     className="ava-img"
                   />
                 </a>
-                <a href="#" className="user-name fw-bold d-flex link-nodecor">
+                <a
+                  className="user-name fw-bold d-flex link-nodecor"
+                  style={{ cursor: "pointer" }}
+                  onClick={handleProfile}
+                >
                   {name ? name : "Anonymous"}
                 </a>
-                {/* <p className="my-auto">{name || "Anonymous"}</p> */}
+                <button className="btn btn-primary" onClick={handleLogOut}>
+                  Log Out
+                </button>
               </>
             ) : (
               <>

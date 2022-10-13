@@ -49,14 +49,11 @@ function Signin() {
         <div className="row">
           <LeftContainer />
           <div className="col-md-5 col-sm-12 right-container">
-            <div className="container row contain">
-              <div className="logo-contain mt-auto">
+            <div className="contain">
+              <div className="logo-contain">
                 <img src={Logo} className="logo" alt="" />
               </div>
-
-              <p className="fs-5 fw-bold mt-auto">
-                Sign In <br />
-              </p>
+              <p className="font-size-5 font-weight-bold mt-5">Sign In</p>
               <p className="fs-6">Hi, Welcome back to Urticket!</p>
               <form>
                 <div className="mb-3">
@@ -90,7 +87,7 @@ function Signin() {
                     )}
                   </span>
                 </div>
-                <div className="mb-3 form-check text-end">
+                <div className="mb-3 form-check text-right">
                   <label className="form-check-label">
                     <a href="../Signup/signup.html">Forgot Password?</a>
                   </label>
@@ -105,7 +102,7 @@ function Signin() {
                   </button>
                 </div>
               </form>
-              <div className="text-center">
+              <div className="text-center mt-3">
                 <p className="fs-6">or sign in with</p>
                 <div className="d-flex justify-content-center">
                   <button
@@ -122,6 +119,14 @@ function Signin() {
                   >
                     <ion-icon name="logo-facebook"></ion-icon>
                   </button>
+                </div>
+                <div className="mb-3 form-check ">
+                  <label className="form-check-label mt-5 d-flex justify-content-center  ">
+                    <p>Not on Wetick yet?</p>
+                    <a href="../signup" className="ml-1">
+                      Sign Up
+                    </a>
+                  </label>
                 </div>
               </div>
             </div>

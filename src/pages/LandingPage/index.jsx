@@ -72,11 +72,16 @@ function LandingPage() {
           </div>
         </div>
 
+        <div className="text-center mt-5">
+          <h4>Event For You</h4>
+        </div>
+
         {/* CALENDAR */}
         <Calendar selectDate={selectDate} />
+
         {/* CARD */}
 
-        <main className="container-fluid d-flex gap-3 landing-overflow">
+        <main className="container-fluid d-flex landing-overflow">
           {data.length > 0 ? (
             data.map((item) => (
               <div key={item.id}>

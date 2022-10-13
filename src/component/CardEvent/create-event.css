@@ -1,0 +1,14 @@
+.create-card-container {
+  border: none;
+  width: 500px;
+  height: 130px;
+}
+
+.create-card-font-style {
+  font-size: 24px;
+  word-spacing: 10px;
+}
+
+.tes {
+  background-color: black;
+}

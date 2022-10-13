@@ -90,7 +90,7 @@ function DetailPage() {
                 alt="event image"
               />
             </div>
-            <p className="fs-5 fw-bold mt-4 detail-query-wishlist">
+            <p className="font-size-5 font-weight-bold mt-4 ml-5 detail-query-wishlist">
               <span>
                 {wishlist === null ? (
                   <ion-icon

@@ -1,7 +1,8 @@
 import "../Order/style.css";
 import { useState, useEffect } from "react";
-useLocation;
 
+import Header from "../../component/Header";
+import Footer from "../../component/Footer";
 import SeatPosition from "../../component/SeatPosition";
 
 import ticketREG from "../../assets/image/Purple ticket.png";
@@ -46,7 +47,6 @@ export default function App() {
   const getDataEvent = async () => {
     try {
       const result = await axios.get(`event/${eventId}`);
-
       setDataEvent(result.data.data[0]);
     } catch (error) {
       //   console.log(error);
@@ -122,93 +122,102 @@ export default function App() {
   };
 
   return (
-    <div className="bg-grey">
-      <div className="container">
-        <div className="card example-card">
-          <div className="row m-5">
-            <div className="col-sm-12 col-md-7 p-0 p-md-4">
-              <div className="rotate-seat">
-                <SeatPosition
-                  width="90%" // MEMBERIKAN BESARAN PADA POLA SEAT
-                  height="90%" // MEMBERIKAN TINGGI PADA POLA SEAT
-                  fullSeat={fullSeat}
-                  activeSeat={activeSeat}
-                  handleSelectSeat={handleSelectSeat}
-                />
-              </div>
-            </div>
-            <div className="col-sm-12 col-md-5 p-0 p-md-4">
-              <h4>Tickets</h4>
+    <>
+      <div className="order-background">
+        {/* HEADER */}
+        <Header />
 
-              {activeSeat.length > 0 ? (
-                <div className="ticket-scrolling">
-                  {dataOrder.map((item, index) => {
-                    const data = item.seat.split("-");
-                    const dataSeat = listBooking.filter(
-                      (itemSeat) => itemSeat.section === item.seat
-                    );
-                    return (
-                      <div className="my-3" key={index}>
-                        <img
-                          src={
-                            data[0].includes("VVIP")
-                              ? ticketVVIP
+        <div className="container order-section-container">
+          <div className="example-card">
+            <div className="row m-5">
+              <div className="col-sm-12 col-md-7 p-0 p-md-4">
+                <div className="rotate-seat">
+                  <SeatPosition
+                    width="90%" // MEMBERIKAN BESARAN PADA POLA SEAT
+                    height="90%" // MEMBERIKAN TINGGI PADA POLA SEAT
+                    fullSeat={fullSeat}
+                    activeSeat={activeSeat}
+                    handleSelectSeat={handleSelectSeat}
+                  />
+                </div>
+              </div>
+              <div className="col-sm-12 col-md-5 p-0 p-md-4">
+                <h4>Tickets</h4>
+
+                {activeSeat.length > 0 ? (
+                  <div className="ticket-scrolling">
+                    {dataOrder.map((item, index) => {
+                      const data = item.seat.split("-");
+                      const dataSeat = listBooking.filter(
+                        (itemSeat) => itemSeat.section === item.seat
+                      );
+
+                      return (
+                        <div className="my-3" key={index}>
+                          <img
+                            src={
+                              data[0].includes("VVIP")
+                                ? ticketVVIP
+                                : data[0].includes("VIP")
+                                ? ticketVIP
+                                : ticketREG
+                            }
+                            className="ticket-icon"
+                            alt="ticket icon"
+                          />
+                          <label className="ms-3">
+                            Section {data[0]}, Row {data[1]} - Rp {item.price}
+                            <br />[
+                            {dataSeat.length > 0
+                              ? dataSeat[0].available
+                              : data[0].includes("VVIP")
+                              ? 10
                               : data[0].includes("VIP")
-                              ? ticketVIP
-                              : ticketREG
-                          }
-                          className="ticket-icon"
-                          alt="ticket icon"
-                        />
-                        <label className="ms-3">
-                          Section {data[0]}, Row {data[1]} - Rp {item.price}
-                          <br />[
-                          {dataSeat.length > 0
-                            ? dataSeat[0].available
-                            : data[0].includes("VVIP")
-                            ? 10
-                            : data[0].includes("VIP")
-                            ? 20
-                            : 30}{" "}
-                          Seats Available]
-                        </label>
-                        <br />
-                        <button
-                          className="btn btn-sm btn-primary"
-                          onClick={() => decreaseOrderSeat(item)}
-                        >
-                          -
-                        </button>
-                        <h5 className="d-inline mx-2">{item.qty}</h5>
-                        <button
-                          className="btn btn-sm btn-primary"
-                          onClick={() => increaseOrderSeat(item)}
-                        >
-                          +
-                        </button>
-                        <hr />
-                      </div>
-                    );
-                  })}
+                              ? 20
+                              : 30}{" "}
+                            Seats Available]
+                          </label>
+                          <br />
+                          <button
+                            className="btn btn-sm btn-primary"
+                            onClick={() => decreaseOrderSeat(item)}
+                          >
+                            -
+                          </button>
+                          <h5 className="d-inline mx-2">{item.qty}</h5>
+                          <button
+                            className="btn btn-sm btn-primary"
+                            onClick={() => increaseOrderSeat(item)}
+                          >
+                            +
+                          </button>
+                          <hr />
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="d-flex align-items-center justify-content-center h-50">
+                    <h6>Select Seat</h6>
+                  </div>
+                )}
+                <hr />
+                <div className="d-grid gap-2">
+                  <button className="btn btn-primary" onClick={handleOrderSeat}>
+                    Checkout
+                  </button>
+                  <button className="btn btn-danger" onClick={clearOrderSeat}>
+                    Clear All
+                  </button>
                 </div>
-              ) : (
-                <div className="d-flex align-items-center justify-content-center h-50">
-                  <h6>Select Seat</h6>
-                </div>
-              )}
-              <hr />
-              <div className="d-grid gap-2">
-                <button className="btn btn-primary" onClick={handleOrderSeat}>
-                  Checkout
-                </button>
-                <button className="btn btn-danger" onClick={clearOrderSeat}>
-                  Clear All
-                </button>
               </div>
             </div>
           </div>
         </div>
+
+        {/* FOOTER */}
+        <Footer />
       </div>
-    </div>
+    </>
   );
 }
