@@ -3,7 +3,6 @@ import "./create-event.css";
 import moment from "moment/moment";
 
 export default function CreateEvent(props) {
-  console.log(props);
   const navigate = useNavigate();
 
   const handleDetail = () => {
@@ -11,7 +10,7 @@ export default function CreateEvent(props) {
   };
   let eventDay = moment(props.data.dateTimeShow).format("ddd");
   let eventDate = moment(props.data.dateTimeShow).format("DD");
-  console.log(props);
+
   return (
     <div className="d-flex mt-5 ml-5 create-parent-container">
       <div className="mr-4 d-flex flex-column justify-content-center align-items-center">

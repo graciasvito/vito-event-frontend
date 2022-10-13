@@ -1,5 +1,5 @@
 import axios from "../../utils/axios";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../component/Footer";
 import Header from "../../component/Header";
@@ -30,9 +30,8 @@ function Profile() {
   const handleUpdate = async () => {
     try {
       const result = await axios.patch(`user/${userId}`, form);
-      dispatch(getDataUser(result.data.data.userId));
+      dispatch(getDataUser(result.data.data[0].userId));
       alert(result.data.message);
-      console.log(result.data.data[0]);
     } catch (error) {
       alert(error.response.data.message);
     }
