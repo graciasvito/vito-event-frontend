@@ -26,7 +26,9 @@ function Header() {
   const handleLogOut = async () => {
     try {
       const result = await axios.post("auth/logout", {
-        refreshToken: refreshToken,
+        headers: {
+          refreshtoken: refreshToken,
+        },
       });
       localStorage.removeItem("refreshToken");
       localStorage.removeItem("token");
@@ -38,87 +40,85 @@ function Header() {
   };
 
   return (
-    <div className="header-body ">
-      <nav className="navbar navbar-expand-lg navbar-light bg-white header-body">
-        <a className="navbar-brand" href="/">
-          <img src={logo} alt="" width="150" height="60" />
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+    <nav className="navbar navbar-expand-lg navbar-light bg-white header-body">
+      <a className="navbar-brand" href="/">
+        <img src={logo} alt="" width="150" height="60" />
+      </a>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto mb-2 mb-lg-0 mx-auto">
-            <li className="nav-item ">
-              <Link to="/" className="nav-link current_page">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/create-event" className="nav-link">
-                Create Event
-              </Link>
-            </li>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto mb-2 mb-lg-0 mx-auto">
+          <li className="nav-item ">
+            <Link to="/" className="nav-link current_page">
+              Home <span className="sr-only">(current)</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/create-event" className="nav-link">
+              Create Event
+            </Link>
+          </li>
 
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
-                Location
-              </Link>{" "}
-            </li>
-          </ul>
-          <div className="d-flex gap-4">
-            {isLogin ? (
-              <>
-                <a
-                  className="mt-2 ava-container"
-                  style={{ cursor: "pointer" }}
-                  onClick={handleProfile}
-                >
-                  <img
-                    src={`${imgSource}/${profileImage}`}
-                    alt="profile ava"
-                    className="ava-img"
-                  />
-                </a>
-                <a
-                  className="user-name fw-bold d-flex link-nodecor"
-                  style={{ cursor: "pointer" }}
-                  onClick={handleProfile}
-                >
-                  {name ? name : "Anonymous"}
-                </a>
-                <button className="btn btn-primary" onClick={handleLogOut}>
-                  Log Out
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  className="btn btn-outline-primary"
-                  onClick={() => handleNavigate("signin")}
-                >
-                  Signin
-                </button>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => handleNavigate("signup")}
-                >
-                  Signup
-                </button>
-              </>
-            )}
-          </div>
+          <li className="nav-item">
+            <Link to="/" className="nav-link">
+              Location
+            </Link>{" "}
+          </li>
+        </ul>
+        <div className="d-flex gap-4">
+          {isLogin ? (
+            <>
+              <a
+                className="mt-2 ava-container"
+                style={{ cursor: "pointer" }}
+                onClick={handleProfile}
+              >
+                <img
+                  src={`${imgSource}/${profileImage}`}
+                  alt="profile ava"
+                  className="ava-img"
+                />
+              </a>
+              <a
+                className="user-name fw-bold d-flex link-nodecor"
+                style={{ cursor: "pointer" }}
+                onClick={handleProfile}
+              >
+                {name ? name : "Anonymous"}
+              </a>
+              <button className="btn btn-primary" onClick={handleLogOut}>
+                Log Out
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className="btn btn-outline-primary"
+                onClick={() => handleNavigate("signin")}
+              >
+                Signin
+              </button>
+              <button
+                className="btn btn-primary"
+                onClick={() => handleNavigate("signup")}
+              >
+                Signup
+              </button>
+            </>
+          )}
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 

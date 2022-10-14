@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import Footer from "../../component/Footer";
 import Header from "../../component/Header";
 import Sidemenu from "../../component/ProfileSection";
+
 import axios from "../../utils/axios";
 import { useNavigate } from "react-router-dom";
 import CardEvent from "../../component/CardEvent/create-event";
 import "./createEvent.css";
+import Modal from "../../component/Modal";
 
 export default function CreateEvent() {
   const navigate = useNavigate();
@@ -14,14 +16,14 @@ export default function CreateEvent() {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    getDataProduct();
+    getDataEvent();
   }, []);
 
   useEffect(() => {
-    getDataProduct();
+    getDataEvent();
   }, [page]);
 
-  const getDataProduct = async () => {
+  const getDataEvent = async () => {
     try {
       const result = await axios.get(
         `event?page=${page}&limit=3&searchName=&sort=name asc&searchDateShow=`
@@ -33,7 +35,7 @@ export default function CreateEvent() {
     }
   };
 
-  const handleDetailProduct = (eventId) => {
+  const handleDetailEvent = (eventId) => {
     navigate(`/detail/${eventId}`);
   };
 
@@ -54,8 +56,29 @@ export default function CreateEvent() {
         {/* SECTION */}
         <section className="container-fluid profile-section-container">
           <Sidemenu />
-          <div className="create-right-section-container ml-sm-5">
-            <h3 className="ml-4 mt-3 font-weight-bold">Manage Event</h3>
+          <div className="create-right-section-container ml-sm-5 ">
+            <div className="d-flex justify-content-between mt-3">
+              <h3 className="ml-4 font-weight-bold">Manage Event</h3>
+              <button
+                type="button"
+                className="btn btn-outline-primary  mr-5"
+                data-toggle="modal"
+                data-target="#create-event"
+              >
+                Create
+              </button>
+
+              <div
+                className="modal fade"
+                id="create-event"
+                tabIndex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <Modal />
+              </div>
+            </div>
             <main className="container-fluid">
               {data.length > 0 ? (
                 data.map((item) => (
@@ -63,7 +86,7 @@ export default function CreateEvent() {
                     <CardEvent
                       data={item}
                       newData="Data Baru nih"
-                      handleDetail={handleDetailProduct}
+                      handleDetail={handleDetailEvent}
                     />
                   </div>
                 ))

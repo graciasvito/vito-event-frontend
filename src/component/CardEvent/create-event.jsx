@@ -25,7 +25,7 @@ export default function CreateEvent(props) {
           <p className="card-text">{props.data.location}</p>
           <p className="card-text">Wed, 15 Nov, 4:00 PM</p>
           <a href="#" className="btn btn-primary" onClick={handleDetail}>
-            Go somewhere
+            Detail
           </a>
         </div>
       </div>

@@ -1,8 +1,5 @@
-.header-body {
-  height: 90px;
-}
-
 /* nav */
+
 li a.current_page {
   color: #3366ff;
   border-bottom: 3px solid #3366ff;

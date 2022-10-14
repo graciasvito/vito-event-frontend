@@ -13,7 +13,7 @@ import Payment from "./pages/Payment";
 import PublicRoute from "./utils/routes/PublicRoute";
 import PrivateRoute from "./utils/routes/PrivateRoute";
 
-import ManageEvent from "./pages/ManageEvent";
+// import ManageEvent from "./pages/ManageEvent";
 import CreateEvent from "./pages/Profile/createEvent";
 import Counter from "./pages/Counter/functional-component";
 import Profile from "./pages/Profile";
@@ -45,7 +45,7 @@ function App() {
 
         {/* PRIVATE ADMIN ROUTE */}
         <Route element={<PrivateRoute isAdmin={true} />}>
-          <Route path="/manage-event" element={<ManageEvent />} />
+          {/* <Route path="/manage-event" element={<ManageEvent />} /> */}
           <Route path="/create-event" element={<CreateEvent />} />
         </Route>
 

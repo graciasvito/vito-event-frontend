@@ -1,8 +1,5 @@
 const initialState = {
   data: [], // UNTUK MENAMPUNG LIST DATA PRODUCT
-  isLoading: false,
-  isError: false,
-  message: "",
 };
 
 const product = (state = initialState, action) => {

@@ -26,15 +26,15 @@ function LandingPage() {
 
   // DIGUNAKAN UNTUK GET DATA PERTAMA KALI
   useEffect(() => {
-    getDataProduct();
+    getDataEvent();
   }, []);
 
   // DIGUNAKAN UNTUK GET DATA JIKA ADA PERUBAHAN STATE
   useEffect(() => {
-    getDataProduct();
+    getDataEvent();
   }, [page, searchName, dateSearch]);
 
-  const getDataProduct = async () => {
+  const getDataEvent = async () => {
     try {
       const result = await axios.get(
         `event?page=${page}&limit=5&searchName=${searchName}&sort=name asc&searchDateShow=${dateSearch}`
@@ -46,7 +46,7 @@ function LandingPage() {
     }
   };
 
-  const handleDetailProduct = (eventId) => {
+  const handleDetailEvent = (eventId) => {
     navigate(`/detail/${eventId}`);
   };
 
@@ -60,10 +60,10 @@ function LandingPage() {
 
   return (
     <>
+      {/* HEADER */}
+      <Header />
+      {/* BANNER */}
       <div className="landing-body">
-        {/* HEADER */}
-        <Header />
-        {/* BANNER */}
         <Banner handleSearch={handleSearch} />
 
         <div className="landing-main-event mt-5">
@@ -88,7 +88,7 @@ function LandingPage() {
                 <CardEvent
                   data={item}
                   newData="Data Baru nih"
-                  handleDetail={handleDetailProduct}
+                  handleDetail={handleDetailEvent}
                 />
               </div>
             ))
