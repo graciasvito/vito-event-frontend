@@ -28,6 +28,11 @@ aside {
   border-radius: 25px;
 }
 
+.profile-section-link {
+  padding-left: 20px;
+  color: rgb(3, 3, 86);
+}
+
 .logout-icon {
   color: red;
 }

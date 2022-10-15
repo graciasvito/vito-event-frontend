@@ -17,6 +17,7 @@ import PrivateRoute from "./utils/routes/PrivateRoute";
 import CreateEvent from "./pages/Profile/createEvent";
 import Counter from "./pages/Counter/functional-component";
 import Profile from "./pages/Profile";
+import UpdateProfile from "./pages/Profile/updatePassword";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           {/* Profile */}
           <Route path="/profile/edit-profile" element={<Profile />} />
+          <Route path="/profile/updatepass" element={<UpdateProfile />} />
         </Route>
 
         {/* PRIVATE ADMIN ROUTE */}

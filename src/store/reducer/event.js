@@ -15,12 +15,12 @@ const event = (state = initialState, action) => {
         message: "",
       };
     }
-    case "CREATE_DATA_EVENT_FULLFILLED": {
+    case "CREATE_DATA_EVENT_FULFILLED": {
       return {
         ...state,
         isLoading: false,
         isError: false,
-        message: action.payload.data.data.message,
+        message: action.payload.data.message,
       };
     }
     case "CREATE_DATA_EVENT_REJECTED": {
@@ -28,25 +28,12 @@ const event = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isError: true,
-        message: action.payload.data.data.message,
+        message: action.payload.data.message,
       };
     }
-    case "GET_DATA_EVENT_PENDING": {
+    default: {
       return {
         ...state,
-        data: [],
-      };
-    }
-    case "GET_DATA_EVENT_FULFILLED": {
-      return {
-        ...state,
-        data: action.payload.data.data,
-      };
-    }
-    case "GET_DATA_EVENT_REJECTED": {
-      return {
-        ...state,
-        data: [],
       };
     }
   }

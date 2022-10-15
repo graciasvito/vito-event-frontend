@@ -34,11 +34,12 @@ export default function App() {
   const getDataBooking = async () => {
     try {
       const result = await axios.get(`booking/section/${eventId}`);
-
-      let dataFullSeat = result.data.data[0].filter((item) => item.statusFull);
+      console.log("Getdatabooking");
+      let dataFullSeat = result.data.data.filter((item) => item.statusFull);
       dataFullSeat = dataFullSeat.map((item) => item.section);
+      console.log(dataFullSeat);
       setFullSeat(dataFullSeat);
-      setListBooking(result.data.data[0]);
+      setListBooking(result.data.data);
     } catch (error) {
       //   console.log(error);
     }

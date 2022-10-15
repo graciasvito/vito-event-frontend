@@ -92,18 +92,23 @@ function DetailPage() {
             <p className="font-size-5 font-weight-bold mt-4 ml-5 detail-query-wishlist">
               <span>
                 {wishlist === null ? (
-                  <ion-icon
-                    name="heart-outline"
-                    onClick={handleWishlist}
-                  ></ion-icon>
+                  <>
+                    <ion-icon
+                      name="heart-outline"
+                      onClick={handleWishlist}
+                    ></ion-icon>
+                    <p>Add to Wishlist</p>
+                  </>
                 ) : (
-                  <ion-icon
-                    name="heart"
-                    onClick={handleDeleteWishlist}
-                  ></ion-icon>
+                  <>
+                    <ion-icon
+                      name="heart"
+                      onClick={handleDeleteWishlist}
+                    ></ion-icon>
+                    <p>Delete Wishlist</p>
+                  </>
                 )}
               </span>
-              Add to Wishlist
             </p>
           </div>
           <div className="container-fluid col-xl-7">
