@@ -7,6 +7,12 @@ const initialState = {
 
 const event = (state = initialState, action) => {
   switch (action.type) {
+    case "RESET_MESSAGE": {
+      return {
+        ...state,
+        message: "",
+      };
+    }
     case "CREATE_DATA_EVENT_PENDING": {
       return {
         ...state,
@@ -29,6 +35,54 @@ const event = (state = initialState, action) => {
         isLoading: false,
         isError: true,
         message: action.payload.data.message,
+      };
+    }
+    case "UPDATE_DATA_EVENT_PENDING": {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        message: "",
+      };
+    }
+    case "UPDATE_DATA_EVENT_FULFILLED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        message: "",
+      };
+    }
+    case "UPDATE_DATA_EVENT_REJECTED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        message: "",
+      };
+    }
+    case "DELETE_DATA_EVENT_PENDING": {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        message: "",
+      };
+    }
+    case "DELETE_DATA_EVENT_FULFILLED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        message: "",
+      };
+    }
+    case "DELETE_DATA_EVENT_REJECTED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        message: "",
       };
     }
     default: {

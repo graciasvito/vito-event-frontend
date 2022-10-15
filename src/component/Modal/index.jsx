@@ -20,6 +20,9 @@ export default function Modal() {
     }
     dispatch(createDataEvent(formData)).then(() => {
       resetForm();
+      setTimeout(() => {
+        dispatch({ type: "RESET_MESSAGE" });
+      }, 3000);
     });
   };
 

@@ -1,13 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import "./create-event.css";
 import moment from "moment/moment";
+import Modal from "../../component/Modal";
+import { useDispatch } from "react-redux";
+
+import { deleteDataEvent } from "../../store/action/event";
 
 export default function CreateEvent(props) {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleDetail = () => {
     navigate(`/detail/${props.data.eventId}`);
   };
+
+  const handleDelete = () => {
+    dispatch(deleteDataEvent(props.data.eventId));
+  };
+
   let eventDay = moment(props.data.dateTimeShow).format("ddd");
   let eventDate = moment(props.data.dateTimeShow).format("DD");
 
@@ -24,9 +34,30 @@ export default function CreateEvent(props) {
           </h5>
           <p className="card-text">{props.data.location}</p>
           <p className="card-text">Wed, 15 Nov, 4:00 PM</p>
-          <a href="#" className="btn btn-primary" onClick={handleDetail}>
+          <button className="btn btn-primary" onClick={handleDetail}>
             Detail
-          </a>
+          </button>
+          <button
+            className="btn btn-warning"
+            onClick={() => props.setUpdate(props.data)}
+            data-toggle="modal"
+            data-target="#create-event"
+          >
+            Update
+          </button>
+          <div
+            className="modal fade"
+            id="create-event"
+            tabIndex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <Modal />
+          </div>
+          <button className="btn btn-danger" onClick={handleDelete}>
+            Delete
+          </button>
         </div>
       </div>
     </div>
