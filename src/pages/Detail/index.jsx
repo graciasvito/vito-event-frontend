@@ -75,9 +75,10 @@ function DetailPage() {
   };
   return (
     <>
-      {/* HEADER */}
-      <Header />
       <div className="detail-body">
+        {/* HEADER */}
+        <Header />
+
         {/* MAIN */}
         <section className="container-fluid detail-section-container">
           <div className="container-fluid col-xl-5 detail-left-container">
@@ -150,7 +151,7 @@ function DetailPage() {
                 Buy Tickets
               </button>
             </article>
-          </div>{" "}
+          </div>
         </section>
         {/* FOOTER */}
         <Footer className="detail-footer" />

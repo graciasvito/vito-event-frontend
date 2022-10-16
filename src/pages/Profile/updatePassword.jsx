@@ -1,5 +1,7 @@
-// import axios from "../../utils/axios";
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+
+import axios from "../../utils/axios";
 import Footer from "../../component/Footer";
 import Header from "../../component/Header";
 import Sidemenu from "../../component/ProfileSection";
@@ -7,6 +9,21 @@ import Sidemenu from "../../component/ProfileSection";
 import "./index.css";
 
 function updatePassword() {
+  const user = useSelector((state) => state.user);
+  const userId = user.data.userId;
+  const [form, setForm] = useState({});
+  const handleChangeForm = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleUpdatePassword = async () => {
+    try {
+      const result = await axios.patch(`user/password/${userId}`, form);
+      alert(result.data.message);
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
   return (
     <>
       <div className="profile-body">
@@ -34,6 +51,7 @@ function updatePassword() {
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                         name="oldPassword"
+                        onChange={handleChangeForm}
                       />
                     </div>
                     <div className="input-group password-input">
@@ -43,6 +61,7 @@ function updatePassword() {
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                         name="newPassword"
+                        onChange={handleChangeForm}
                       />
                     </div>
                     <div className="input-group password-input">
@@ -52,6 +71,7 @@ function updatePassword() {
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                         name="confirmPassword"
+                        onChange={handleChangeForm}
                       />
                     </div>
                   </form>
@@ -60,6 +80,7 @@ function updatePassword() {
               <button
                 type="button"
                 className="btn btn-primary btn-lg btn-block mt-sm-5"
+                onClick={handleUpdatePassword}
               >
                 Update Password
               </button>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../component/Footer";
 import Header from "../../component/Header";
 import Sidemenu from "../../component/ProfileSection";
-import { getDataUser } from "../../store/action/user";
+import { getDataUser, updateImageUser } from "../../store/action/user";
 
 import "./index.css";
 
@@ -17,15 +17,15 @@ function Profile() {
   const name = user.data.name;
   const username = user.data.username;
   const email = user.data.email;
-  const gender = user.data.gender;
+  // const gender = user.data.gender;
   const birthday = user.data.dateOfBirth;
   const profession = user.data.profession;
   const userId = user.data.userId;
-  // const nationality = user.data.nationality;
+  const nationality = user.data.nationality;
 
-  const [form, setForm] = useState({
-    name: name,
-  });
+  const [form, setForm] = useState({});
+  const [image, setImage] = useState("");
+  const [imageForm, setImageForm] = useState({});
 
   const handleUpdate = async () => {
     try {
@@ -37,13 +37,21 @@ function Profile() {
     }
   };
 
-  // const handleUpdateImage = async () => {
-  //   try {
-  //     const result = await axios.patch(`user/image/${userId}`)
-  //   } catch (error) {
+  const handleChangeImage = (e) => {
+    const { name, files } = e.target;
 
-  //   }
-  // }
+    setImageForm({ ...imageForm, [name]: files[0] });
+    setImage(URL.createObjectURL(files[0]));
+  };
+
+  const handleUpdateImage = (e) => {
+    e.preventDefault();
+    const formImageData = new FormData();
+    for (const image in imageForm) {
+      formImageData.append(image, imageForm[image]);
+    }
+    dispatch(updateImageUser(formImageData, userId));
+  };
 
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -84,8 +92,16 @@ function Profile() {
                         onChange={handleChangeForm}
                       />
                     </div>
-                    <div className="value-container value-margin">
-                      <p>@{username}</p>
+                    <div className="value-container mt-4">
+                      <input
+                        type="text"
+                        className="form-control"
+                        aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default"
+                        placeholder={username}
+                        name="username"
+                        onChange={handleChangeForm}
+                      />
                     </div>
                     <div className="d-flex value-container mt-5">
                       <p>{email}</p>
@@ -93,46 +109,54 @@ function Profile() {
                     <div className="value-container value-margin">
                       <input
                         type="radio"
-                        id="Male"
                         name="gender"
                         value="Male"
-                        checked={gender === "male"}
+                        onChange={handleChangeForm}
                       />
                       <label htmlFor="html">Male</label>
                       <input
                         type="radio"
-                        id="female"
                         name="gender"
-                        value="female"
+                        value="Female"
                         className="ml-4"
-                        checked={gender === "female"}
+                        onChange={handleChangeForm}
                       />
                       <label htmlFor="css">Female</label>
                     </div>
-                    <div className="input-group value-container mt-4">
-                      <select className="custom-select" id="inputGroupSelect02">
+                    <div className="input-group value-container value-margin">
+                      <select
+                        className="custom-select"
+                        id="inputGroupSelect02"
+                        name="profession"
+                        onChange={handleChangeForm}
+                      >
                         <option selected>{profession}</option>
-                        <option value="1">Developer</option>
-                        <option value="2">Employee</option>
-                        <option value="3">Investor</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Employee">Employee</option>
+                        <option value="Investor">Investor</option>
                       </select>
                     </div>
                     <div className="input-group value-container value-margin">
-                      <select className="custom-select" id="inputGroupSelect02">
-                        <option selected>Indonesia</option>
-                        <option value="1">Spain</option>
-                        <option value="2">Mexico</option>
-                        <option value="3">German</option>
+                      <select
+                        className="custom-select"
+                        id="inputGroupSelect02"
+                        name="nationality"
+                        onChange={handleChangeForm}
+                      >
+                        <option value={nationality}>{nationality}</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="German">German</option>
+                        <option value="Indonesia">Indonesia</option>
                       </select>
                     </div>
-                    <p className="value-container birthday ">
+                    <p className="value-container value-margin ">
                       <input
-                        type="date"
+                        type="text"
                         id="birthday"
                         name="dateOfBirth"
                         value={birthday}
-                        min="1990-01-01"
-                        max="2018-12-31"
+                        onChange={handleChangeForm}
                       />
                     </p>
                   </div>
@@ -140,18 +164,28 @@ function Profile() {
                 <div className="card profile-card ml-sm-5 mt-5">
                   <div className="profile-img-container mx-auto">
                     <img
-                      src={`${imgUserSource}/${profileImage}`}
+                      src={image ? image : `${imgUserSource}/${profileImage}`}
                       className="card-img-top profile-card-img "
                     />
                   </div>
                   <div className="card-body mx-auto">
-                    <a
-                      href="#"
+                    <input
+                      type="file"
+                      id="profile-img"
+                      className="btn btn-outline-primary profile-card-button font-weight-bold d-none"
+                      onChange={handleChangeImage}
+                    />
+                    <label
+                      htmlFor="profile-img"
                       className="btn btn-outline-primary profile-card-button font-weight-bold"
-                      // onClick={handleUpdateImage}
+                      onClick={image ? handleUpdateImage : ""}
                     >
-                      Choose Photo
-                    </a>
+                      {image ? "Save Photo" : "Choose Photo"}
+                    </label>
+                    {/* <button type="submit" onClick={handleUpdateImage}>
+                      save photo
+                    </button> */}
+
                     <p className="card-text">Image size: max, 500 KB</p>
                     <p className="card-text">
                       Image formats: .JPG, .JPEG, .PNG

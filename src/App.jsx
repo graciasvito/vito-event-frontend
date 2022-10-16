@@ -7,7 +7,7 @@ import Signin from "./pages/Signin/";
 import Signup from "./pages/Signup";
 
 import DetailPage from "./pages/Detail";
-import OrderPage from "./pages/Order/example.jsx";
+import OrderPage from "./pages/Order/";
 import Payment from "./pages/Payment";
 
 import PublicRoute from "./utils/routes/PublicRoute";

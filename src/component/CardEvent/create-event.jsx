@@ -4,7 +4,7 @@ import moment from "moment/moment";
 import Modal from "../../component/Modal";
 import { useDispatch } from "react-redux";
 
-import { deleteDataEvent } from "../../store/action/event";
+import { getDataEvent, deleteDataEvent } from "../../store/action/event";
 
 export default function CreateEvent(props) {
   const dispatch = useDispatch();
@@ -15,7 +15,9 @@ export default function CreateEvent(props) {
   };
 
   const handleDelete = () => {
-    dispatch(deleteDataEvent(props.data.eventId));
+    dispatch(deleteDataEvent(props.data.eventId)).then(() => {
+      dispatch(getDataEvent());
+    });
   };
 
   let eventDay = moment(props.data.dateTimeShow).format("ddd");

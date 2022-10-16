@@ -3,6 +3,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   message: "",
+  pagination: {},
 };
 
 const event = (state = initialState, action) => {
@@ -11,6 +12,25 @@ const event = (state = initialState, action) => {
       return {
         ...state,
         message: "",
+      };
+    }
+    case "GET_DATA_EVENT_PENDING": {
+      return {
+        ...state,
+        data: [],
+      };
+    }
+    case "GET_DATA_EVENT_FULFILLED": {
+      return {
+        ...state,
+        data: action.payload.data.data,
+        pagination: action.payload.data.pagination,
+      };
+    }
+    case "GET_DATA_EVENT_REJECTED": {
+      return {
+        ...state,
+        data: [],
       };
     }
     case "CREATE_DATA_EVENT_PENDING": {

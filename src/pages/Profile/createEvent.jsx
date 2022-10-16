@@ -6,10 +6,14 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../component/Footer";
 import Header from "../../component/Header";
 import Sidemenu from "../../component/ProfileSection";
-import axios from "../../utils/axios";
+// import axios from "../../utils/axios";
 import CardEvent from "../../component/CardEvent/create-event";
 import "./createEvent.css";
-import { createDataEvent, updateDataEvent } from "../../store/action/event";
+import {
+  getDataEvent,
+  createDataEvent,
+  updateDataEvent,
+} from "../../store/action/event";
 
 // import Modal from "../../component/Modal";
 
@@ -18,8 +22,6 @@ export default function CreateEvent() {
   const event = useSelector((state) => state.event);
   const navigate = useNavigate();
 
-  const [data, setData] = useState([]);
-  const [pagination, setPagination] = useState({});
   const [page, setPage] = useState(1);
   const [form, setForm] = useState({});
   const [image, setImage] = useState("");
@@ -27,23 +29,15 @@ export default function CreateEvent() {
   const [isUpdate, setIsUpdate] = useState(false);
 
   useEffect(() => {
-    getDataEvent();
+    getEvent();
   }, []);
 
   useEffect(() => {
-    getDataEvent();
+    getEvent();
   }, [page]);
 
-  const getDataEvent = async () => {
-    try {
-      const result = await axios.get(
-        `event?page=${page}&limit=3&searchName=&sort=name asc&searchDateShow=`
-      );
-      setData(result.data.data);
-      setPagination(result.data.pagination);
-    } catch (error) {
-      // console.error(error);
-    }
+  const getEvent = () => {
+    dispatch(getDataEvent(page));
   };
 
   const handleSubmit = (e) => {
@@ -54,6 +48,7 @@ export default function CreateEvent() {
       formData.append(data, form[data]);
     }
     dispatch(createDataEvent(formData)).then(() => {
+      dispatch(getDataEvent(page));
       resetForm();
       setTimeout(() => {
         dispatch({ type: "RESET_MESSAGE" });
@@ -111,6 +106,9 @@ export default function CreateEvent() {
       getDataEvent();
       setIsUpdate(false);
       resetForm();
+      setTimeout(() => {
+        dispatch({ type: "RESET_MESSAGE" });
+      }, 3000);
     });
   };
 
@@ -262,8 +260,8 @@ export default function CreateEvent() {
               </div>
             </div>
             <main className="container-fluid">
-              {data.length > 0 ? (
-                data.map((item) => (
+              {event.data.length > 0 ? (
+                event.data.map((item) => (
                   <div key={item.id}>
                     <CardEvent
                       data={item}
@@ -291,7 +289,7 @@ export default function CreateEvent() {
               <button
                 className="btn btn-primary"
                 onClick={handleNextPage}
-                disabled={page === pagination.totalPage ? true : false}
+                disabled={page === event.pagination.totalPage ? true : false}
               >
                 &gt;
               </button>

@@ -11,7 +11,7 @@ export const getDataEvent = (page) => {
   return {
     type: "GET_DATA_EVENT",
     payload: axios.get(
-      `event?page=${page}&limit=5&searchName=&sort=name asc&searchDateShow=`
+      `event?page=${page}&limit=3&searchName=&sort=name asc&searchDateShow=`
     ),
   };
 };
