@@ -34,10 +34,11 @@ export default function Banner(props) {
                   setKeyword(e.target.value);
                 }}
               />
-              <ion-icon name="location-outline" class="home-icon"></ion-icon>
+              <ion-icon name="funnel-outline" class="home-icon"></ion-icon>
+              {/* <ion-icon name="location-outline" class="home-icon"></ion-icon> */}
               <input
                 className="form-control home-input-field"
-                placeholder="Where?"
+                placeholder="Sort"
                 name="srch-term"
                 id="srch-term2"
                 type="text"

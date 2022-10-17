@@ -155,7 +155,7 @@ function Profile() {
                         type="text"
                         id="birthday"
                         name="dateOfBirth"
-                        value={birthday}
+                        placeholder={birthday}
                         onChange={handleChangeForm}
                       />
                     </p>

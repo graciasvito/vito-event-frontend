@@ -8,6 +8,8 @@ import moment from "moment/moment";
 // import eventA from "../../assets/image/Event A.png";
 
 function CardEvent(props) {
+  const imgSource =
+    "https://res.cloudinary.com/du0sbrocy/image/upload/v1663640826/";
   const navigate = useNavigate();
 
   const handleDetail = () => {
@@ -18,10 +20,9 @@ function CardEvent(props) {
   return (
     <a onClick={handleDetail}>
       <div className="card card-size mr-5 mt-5">
-        {/* https://res.cloudinary.com/du0sbrocy/image/upload/v1663640826/Vito%20event%20org%20backend/ */}
         <img
           className="card-img-top card-img-size"
-          src={`https://res.cloudinary.com/du0sbrocy/image/upload/v1663640826/${props.data.image}`}
+          src={`${imgSource}${props.data.image}`}
           alt="Card image cap"
         />
         <div className="card-img-overlay text-white d-flex flex-column justify-content-end">

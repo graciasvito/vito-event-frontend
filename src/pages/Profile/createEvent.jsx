@@ -41,6 +41,7 @@ export default function CreateEvent() {
   };
 
   const handleSubmit = (e) => {
+    setIsUpdate(false);
     e.preventDefault();
     // only used for data that has file type data
     const formData = new FormData();
@@ -78,6 +79,19 @@ export default function CreateEvent() {
     } else {
       setForm({ ...form, [name]: value });
     }
+  };
+
+  const setCreate = () => {
+    setIsUpdate(false);
+    setForm({
+      name: "",
+      category: "",
+      location: "",
+      dateTimeShow: "",
+      price: "",
+      image: "",
+      detail: "",
+    });
   };
 
   const setUpdate = (data) => {
@@ -138,9 +152,10 @@ export default function CreateEvent() {
               <h3 className="ml-4 font-weight-bold">Manage Event</h3>
               <button
                 type="button"
-                className="btn btn-outline-primary  mr-5"
+                className="btn btn-outline-primary mr-5"
                 data-toggle="modal"
                 data-target="#create-event"
+                onClick={setCreate}
               >
                 Create
               </button>
