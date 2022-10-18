@@ -1,17 +1,26 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import axios from "../../utils/axios";
 import Footer from "../../component/Footer";
 import Header from "../../component/Header";
 import Sidemenu from "../../component/ProfileSection";
 
+import { getDataUser } from "../../store/action/user";
+
 import "./index.css";
 
 function updatePassword() {
+  const dispatch = useDispatch();
+
   const user = useSelector((state) => state.user);
   const userId = user.data.userId;
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+    oldPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
+
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -20,10 +29,12 @@ function updatePassword() {
     try {
       const result = await axios.patch(`user/password/${userId}`, form);
       alert(result.data.message);
+      dispatch(getDataUser());
     } catch (error) {
       alert(error.response.data.message);
     }
   };
+
   return (
     <>
       <div className="profile-body">
@@ -51,6 +62,7 @@ function updatePassword() {
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                         name="oldPassword"
+                        placeholder="Old Password"
                         onChange={handleChangeForm}
                       />
                     </div>
@@ -61,6 +73,7 @@ function updatePassword() {
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                         name="newPassword"
+                        placeholder="New Password"
                         onChange={handleChangeForm}
                       />
                     </div>
@@ -71,6 +84,7 @@ function updatePassword() {
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                         name="confirmPassword"
+                        placeholder="Confirm Password"
                         onChange={handleChangeForm}
                       />
                     </div>

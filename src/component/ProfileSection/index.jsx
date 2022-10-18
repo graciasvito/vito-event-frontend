@@ -130,9 +130,9 @@ function Sidemenu() {
           >
             <ion-icon
               name="log-out-outline"
-              class="profile-icon mt-1"
+              class="logout-icon mt-1"
             ></ion-icon>
-            <p className="font-weight-bold ml-xl-3 text-decoration-none text-dark">
+            <p className="font-weight-bold ml-xl-3 text-decoration-none text-danger">
               Logout
             </p>
           </button>

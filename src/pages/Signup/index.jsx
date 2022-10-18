@@ -18,8 +18,6 @@ function Signup() {
   const handleRegister = async () => {
     try {
       const result = await axios.post("auth/register", form);
-      localStorage.setItem("idUser", result.data.data.userId);
-      localStorage.setItem("token", result.data.data.token);
       alert(result.data.message);
       navigate("/signin");
     } catch (error) {

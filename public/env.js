@@ -2,7 +2,7 @@ window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "APPDATA": "C:\\Users\\Vito\\AppData\\Roaming",
   "BASE-URL": "http://localhost:3001/api/",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_12368_BBVVLOEHNCYSCEHB",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_12992_FQFTXXBTDEMLUKFA",
   "CLOUDINARY_URL_EVENT": "https://res.cloudinary.com/du0sbrocy/image/upload/v1663640826/",
   "CLOUDINARY_URL_USER": "https://res.cloudinary.com/du0sbrocy/image/upload/v1663819188",
   "COLOR": "1",

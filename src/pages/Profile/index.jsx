@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../component/Footer";
 import Header from "../../component/Header";
 import Sidemenu from "../../component/ProfileSection";
-import { getDataUser, updateImageUser } from "../../store/action/user";
+import { getDataUser } from "../../store/action/user";
 
 import "./index.css";
 
@@ -50,7 +50,10 @@ function Profile() {
     for (const image in imageForm) {
       formImageData.append(image, imageForm[image]);
     }
-    dispatch(updateImageUser(formImageData, userId));
+
+    axios.patch(`user/image/${userId}`, formImageData).then((response) => {
+      alert(response);
+    });
   };
 
   const handleChangeForm = (e) => {
@@ -111,17 +114,17 @@ function Profile() {
                         type="radio"
                         name="gender"
                         value="Male"
-                        onChange={handleChangeForm}
+                        onClick={handleChangeForm}
                       />
-                      <label htmlFor="html">Male</label>
+                      <label>Male</label>
                       <input
                         type="radio"
                         name="gender"
                         value="Female"
                         className="ml-4"
-                        onChange={handleChangeForm}
+                        onClick={handleChangeForm}
                       />
-                      <label htmlFor="css">Female</label>
+                      <label>Female</label>
                     </div>
                     <div className="input-group value-container value-margin">
                       <select
@@ -182,9 +185,6 @@ function Profile() {
                     >
                       {image ? "Save Photo" : "Choose Photo"}
                     </label>
-                    {/* <button type="submit" onClick={handleUpdateImage}>
-                      save photo
-                    </button> */}
 
                     <p className="card-text">Image size: max, 500 KB</p>
                     <p className="card-text">

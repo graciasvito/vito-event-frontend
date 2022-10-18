@@ -18,6 +18,7 @@ import CreateEvent from "./pages/Profile/createEvent";
 import Counter from "./pages/Counter/functional-component";
 import Profile from "./pages/Profile";
 import UpdateProfile from "./pages/Profile/updatePassword";
+import MyBooking from "./pages/Profile/myBooking";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           {/* Profile */}
           <Route path="/profile/edit-profile" element={<Profile />} />
           <Route path="/profile/updatepass" element={<UpdateProfile />} />
+          <Route path="/profile/mybooking" element={<MyBooking />} />
         </Route>
 
         {/* PRIVATE ADMIN ROUTE */}
