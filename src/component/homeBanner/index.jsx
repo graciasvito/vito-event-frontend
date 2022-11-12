@@ -4,6 +4,7 @@ import imageBanner from "../../assets/image/img banner.png";
 import "../homeBanner/index.css";
 
 export default function Banner(props) {
+  console.log(props);
   const [keyword, setKeyword] = useState("");
 
   const handleSearch = () => {
