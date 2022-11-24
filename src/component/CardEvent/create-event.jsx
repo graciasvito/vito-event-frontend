@@ -35,7 +35,9 @@ export default function CreateEvent(props) {
             {props.data.name}
           </h5>
           <p className="card-text">{props.data.location}</p>
-          <p className="card-text">Wed, 15 Nov, 4:00 PM</p>
+          <p className="card-text">
+            {moment(props.data.dateTimeShow).format("llll")}
+          </p>
           <button className="btn btn-primary" onClick={handleDetail}>
             Detail
           </button>
