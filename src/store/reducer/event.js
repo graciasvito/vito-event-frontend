@@ -2,8 +2,8 @@ const initialState = {
   data: [], //for store the data
   isLoading: false,
   isError: false,
-  message: "",
   pagination: {},
+  message: "",
 };
 
 const event = (state = initialState, action) => {

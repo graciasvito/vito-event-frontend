@@ -90,7 +90,7 @@ function Sidemenu() {
           <button
             type="button"
             className="btn btn-outline-light text-dark font-weight-bold d-flex"
-            onClick={() => navigation("/")}
+            onClick={() => navigation("/mybooking")}
           >
             <ion-icon
               name="reorder-four-outline"

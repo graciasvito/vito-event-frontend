@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getDataUser } from "../../store/action/user";
+import { getDataBooking } from "../../store/action/booking";
 
 function Signin() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function Signin() {
     try {
       const result = await axios.post("auth/login", form);
       dispatch(getDataUser(result.data.data.userId));
+      dispatch(getDataBooking(result.data.data.userId));
       localStorage.setItem("userId", result.data.data.userId);
       localStorage.setItem("token", result.data.data.token);
       localStorage.setItem("refreshToken", result.data.data.refreshToken);

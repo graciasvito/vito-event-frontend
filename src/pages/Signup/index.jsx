@@ -21,7 +21,8 @@ function Signup() {
       alert(result.data.message);
       navigate("/signin");
     } catch (error) {
-      alert(error.response.data.message);
+      console.log(error);
+      alert(error.response.message);
     }
   };
 

@@ -117,13 +117,13 @@ export default function CreateEvent() {
       formData.append(data, form[data]);
     }
     dispatch(updateDataEvent(formData, eventId)).then(() => {
-      getDataEvent();
       setIsUpdate(false);
       resetForm();
       setTimeout(() => {
         dispatch({ type: "RESET_MESSAGE" });
       }, 3000);
     });
+    getDataEvent(page);
   };
 
   const handleDetailEvent = (eventId) => {

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../component/Footer";
 import Header from "../../component/Header";
 import Sidemenu from "../../component/ProfileSection";
-import { getDataUser } from "../../store/action/user";
+import { getDataUser, updateImageUser } from "../../store/action/user";
 
 import "./index.css";
 
@@ -44,18 +44,22 @@ function Profile() {
     setImage(URL.createObjectURL(files[0]));
   };
 
-  const handleUpdateImage = (e) => {
+  const handleUpdateImage = async (e) => {
     e.preventDefault();
     const formImageData = new FormData();
-    for (const image in imageForm) {
-      formImageData.append(image, imageForm[image]);
+    for (const data in imageForm) {
+      formImageData.append(data, imageForm[data]);
     }
-
-    axios.patch(`user/image/${userId}`, formImageData).then((response) => {
-      alert(response);
+    dispatch(updateImageUser(formImageData, userId)).then((response) => {
+      alert(response.value.data.message);
+      dispatch(getDataUser(userId));
+      setImage("");
     });
-  };
 
+    // const update = await axios.patch(`user/image/${userId}`, formImageData);
+    // alert(update.data.message);
+  };
+  // console.log(imageForm.image);
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -176,6 +180,7 @@ function Profile() {
                       type="file"
                       id="profile-img"
                       className="btn btn-outline-primary profile-card-button font-weight-bold d-none"
+                      name="image"
                       onChange={handleChangeImage}
                     />
                     <label

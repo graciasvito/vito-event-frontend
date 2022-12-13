@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosApiInstances = axios.create({
-  baseURL: "https://vito-event-organizer-backend.vercel.app/api",
+  baseURL: "http://localhost:3001/api",
 });
 
 // Add a request interceptor

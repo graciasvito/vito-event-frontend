@@ -4,7 +4,7 @@ window.env = {
   "APPDATA": "C:\\Users\\Vito\\AppData\\Roaming",
   "BASE-URL": "http://localhost:3001/api/",
   "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_16296_GQIAHTGPDWXPAFDJ",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\LOCAL\\crashpad_11472_GGALFRUHKOKMLPPE",
   "CLOUDINARY_URL_EVENT": "https://res.cloudinary.com/du0sbrocy/image/upload/v1663640826/",
   "CLOUDINARY_URL_USER": "https://res.cloudinary.com/du0sbrocy/image/upload/v1663819188",
   "COLOR": "1",
@@ -24,7 +24,7 @@ window.env = {
   "HOMEPATH": "\\Users\\Vito",
   "INIT_CWD": "C:\\Users\\Vito\\Documents\\Programing\\Bootcamp\\Vito-Event-Frontend\\vito-event-frontend",
   "JAVA_HOME": "C:\\Program Files\\Java\\jdk-18.0.2.1",
-  "LANG": "en_US.UTF-8",
+  "LANG": "en_ID.UTF-8",
   "LOCALAPPDATA": "C:\\Users\\Vito\\AppData\\Local",
   "LOGONSERVER": "\\\\GRACIAS",
   "NODE": "C:\\Program Files\\nodejs\\node.exe",
@@ -72,7 +72,7 @@ window.env = {
   "SystemRoot": "C:\\WINDOWS",
   "TEMP": "C:\\Users\\Vito\\AppData\\Local\\Temp",
   "TERM_PROGRAM": "vscode",
-  "TERM_PROGRAM_VERSION": "1.73.1",
+  "TERM_PROGRAM_VERSION": "1.74.0",
   "TMP": "C:\\Users\\Vito\\AppData\\Local\\Temp",
   "USERDOMAIN": "GRACIAS",
   "USERDOMAIN_ROAMINGPROFILE": "GRACIAS",
@@ -82,5 +82,6 @@ window.env = {
   "VSCODE_GIT_ASKPASS_MAIN": "c:\\Users\\Vito\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js",
   "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\Vito\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
   "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-842befe30a-sock",
+  "VSCODE_INJECTION": "1",
   "windir": "C:\\WINDOWS"
 };
