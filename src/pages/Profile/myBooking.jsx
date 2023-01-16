@@ -20,13 +20,11 @@ export default function MyBooking() {
   const [dataEvent, setDataEvent] = useState("");
 
   useEffect(() => {
-    if (booking.data.length > 1) {
-      getDataEvent();
-    }
+    getDataEvent();
+    dispatch(getDataBooking(user.data.userId));
     if (bookingEvent.length > 1) {
       getBookingEvent();
     }
-    dispatch(getDataBooking(user.data.userId));
   }, []);
 
   const getDataEvent = async () => {
@@ -40,6 +38,7 @@ export default function MyBooking() {
       setBookingEvent(responses.map((item) => item.data.data));
       // setDataEvent(bookingEvent.flat());
     });
+    // console.log(promises);
   };
 
   const getBookingEvent = () => {
@@ -47,7 +46,7 @@ export default function MyBooking() {
       setDataEvent(bookingEvent.flat());
     }
   };
-  // console.log(bookingEvent);
+  // console.log(dataEvent);
 
   return (
     <>
@@ -57,7 +56,7 @@ export default function MyBooking() {
         {/* Main */}
         <section className="container-fluid profile-section-container">
           <Sidemenu />
-          <div className="create-right-section-container ml-sm-5 ">
+          <div className="myBooking-right-section-container ml-sm-5 ">
             <div>
               <h3 className="ml-5 font-weight-bold mt-4">My Booking</h3>
             </div>
