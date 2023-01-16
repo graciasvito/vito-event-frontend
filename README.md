@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+<h1 align='center'>Vito Event Organizer</h1>
+  <p align="center">
+    <a href="https://vito-eventorganizer.netlify.app/">View Demo Frontend</a>
+    ·
+    <a href="https://github.com/graciasvito/vito-event-frontend/issues">Report Bug</a>
+  </p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About The Project
 
-## Available Scripts
+ <p>
+ <strong>Vito Event Organizer</strong> is a website that provides reservation in certain events in various major cities in Indonesia. It has features such as users can booking the desired section of the event, search for events, and users can update personal data.
+ </p>
 
-In the project directory, you can run:
+## Built With
 
-### `npm start`
+<div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[![React](https://img.shields.io/badge/React-v18.2.0-blue)](https://github.com/facebook/react) [![Bootstrap](https://img.shields.io/badge/Bootstrap-v5.2.x-blue)](https://github.com/react-bootstrap/react-bootstrap) [![Axios](https://img.shields.io/badge/Axios-v1.1.x-blue)](https://axios-http.com/) [![Redux](https://img.shields.io/badge/Redux-v4.2.x-blue)](https://redux.js.org/) <br/> other packages see file `package.json`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Requirements
 
-### `npm test`
+1. <a href="https://nodejs.org/en/download/">Node Js</a>
+2. Node_modules `npm install` or `yarn install` or `pnpm install`
+3. Backend API Vito Event Organizer [`here`](https://github.com/graciasvito/Vito-Event-Organizer-Backend)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+1. Download these repos [`Backend`](https://github.com/graciasvito/Vito-Event-Organizer-Backend) and [`Frontend`](https://github.com/graciasvito/vito-event-frontend) or you can type `git clone`[`backend-url`](https://github.com/graciasvito/Vito-Event-Organizer-Backend) and [`frontend-url`](https://github.com/graciasvito/vito-event-frontend)
+2. Open app's directory in CMD or Terminal
+3. Type `npm install` or `yarn install` or `pnpm install`
+4. Add .env file at root folder project see file `.env.example`
+5. Type `npm start` or `yarn start` or `pnpm start` for run this app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Acknowledgements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React.js](https://reactjs.org/)
+- [Bootstrap](https://github.com/react-bootstrap/react-bootstrap)
+- [Axios](https://axios-http.com/)
+- [Redux](https://redux.js.org/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Website Interface
+<img width="949" alt="Login Page" src="https://user-images.githubusercontent.com/88246152/208010078-4e69e6ce-5700-4588-b4d8-d1f1fbd654db.png">
+<img width="946" alt="HomePage 1" src="https://user-images.githubusercontent.com/88246152/208010089-d63d7f74-a0c5-41ab-bcd3-9bc0d827a6ec.png">
+<img width="946" alt="HomePage 2" src="https://user-images.githubusercontent.com/88246152/208010101-a62975e2-5cd4-4b2b-8638-30ca8ab31a51.png">
+<img width="943" alt="Profile Page" src="https://user-images.githubusercontent.com/88246152/208010110-14611dda-43fa-4034-b1d9-de572787a073.png">
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
