@@ -103,7 +103,7 @@ function Header() {
           ) : (
             <>
               <button
-                className="btn btn-outline-primary"
+                className="btn btn-outline-primary mr-3"
                 onClick={() => handleNavigate("signin")}
               >
                 Signin

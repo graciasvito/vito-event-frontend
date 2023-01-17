@@ -123,7 +123,7 @@ export default function CreateEvent() {
         dispatch({ type: "RESET_MESSAGE" });
       }, 3000);
     });
-    getDataEvent(page);
+    getEvent();
   };
 
   const handleDetailEvent = (eventId) => {

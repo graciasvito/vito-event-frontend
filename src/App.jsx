@@ -27,18 +27,22 @@ function App() {
         {/*AUTH*/}
         {/* PUBLIC AUTH ROUTE */}
         <Route element={<PublicRoute />}>
+          {/* AUTH */}
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-        </Route>
-
-        {/* PRIVATE ROUTE */}
-        <Route element={<PrivateRoute />}>
-          {/*MAIN*/}
+          {/* MAIN */}
           <Route path="/" element={<LandingPage />} />
           {/*Detail*/}
           <Route path="/detail/:eventId" element={<DetailPage />} />
           {/*Order*/}
           <Route path="/order" element={<OrderPage />} />
+        </Route>
+
+        {/* PRIVATE ROUTE */}
+        <Route element={<PrivateRoute />}>
+          {/* MAIN
+          <Route path="/" element={<LandingPage />} /> */}
+
           {/* Payment */}
           <Route path="/payment" element={<Payment />} />
           {/* Profile */}

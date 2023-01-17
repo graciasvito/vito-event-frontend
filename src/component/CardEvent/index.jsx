@@ -25,9 +25,9 @@ function CardEvent(props) {
           src={`${imgSource}${props.data.image}`}
           alt="Card image cap"
         />
-        <div className="card-img-overlay text-white d-flex flex-column justify-content-end">
-          <p className="card-text date-card-size bg-dark">{eventDate}</p>
-          <h5 className="card-title bg-dark">{props.data.name}</h5>
+        <div className="card-img-overlay text-white d-flex flex-column justify-content-end black-card">
+          <p className="card-text date-card-size ">{eventDate}</p>
+          <h5 className="card-title ">{props.data.name}</h5>
           <Attendees />
         </div>
       </div>
