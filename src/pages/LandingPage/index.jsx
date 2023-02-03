@@ -36,6 +36,7 @@ function LandingPage() {
   // DIGUNAKAN UNTUK GET DATA JIKA ADA PERUBAHAN STATE
   useEffect(() => {
     getDataEvent();
+    dispatch(getDataBooking(user.data.userId));
   }, [page, searchName, dateSearch]);
 
   const getDataEvent = async () => {
@@ -45,7 +46,6 @@ function LandingPage() {
       );
       setData(result.data.data);
       setPagination(result.data.pagination);
-      dispatch(getDataBooking(user.data.userId));
     } catch (error) {
       // console.error(error);
     }
