@@ -4,7 +4,7 @@ window.env = {
   "APPDATA": "C:\\Users\\Vito\\AppData\\Roaming",
   "BASE-URL": "http://localhost:3001/api/",
   "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\LOCAL\\crashpad_17968_OKSXVAHKPEVUJLAT",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\LOCAL\\crashpad_20360_UPHCSNQNQSHNTNDZ",
   "CLOUDINARY_URL_EVENT": "https://res.cloudinary.com/du0sbrocy/image/upload/v1663640826/",
   "CLOUDINARY_URL_USER": "https://res.cloudinary.com/du0sbrocy/image/upload/v1663819188",
   "COLOR": "1",

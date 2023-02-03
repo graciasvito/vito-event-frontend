@@ -8,12 +8,12 @@ import Banner from "../../component/homeBanner";
 import Calendar from "../../component/Calendar";
 import "../LandingPage/index.css";
 import moment from "moment/moment";
-import { useDispatch, useSelector } from "react-redux";
-import { getDataBooking } from "../../store/action/booking";
+// import { useDispatch, useSelector } from "react-redux";
+// import { getDataBooking } from "../../store/action/booking";
 
 function LandingPage() {
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  // const dispatch = useDispatch();
+  // const user = useSelector((state) => state.user);
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [pagination, setPagination] = useState({});
@@ -36,7 +36,7 @@ function LandingPage() {
   // DIGUNAKAN UNTUK GET DATA JIKA ADA PERUBAHAN STATE
   useEffect(() => {
     getDataEvent();
-    dispatch(getDataBooking(user.data.userId));
+    // dispatch(getDataBooking(user.data.userId));
   }, [page, searchName, dateSearch]);
 
   const getDataEvent = async () => {

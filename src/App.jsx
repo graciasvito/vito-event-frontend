@@ -30,21 +30,19 @@ function App() {
           {/* AUTH */}
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          {/* MAIN */}
-          <Route path="/" element={<LandingPage />} />
-          {/*Detail*/}
-          <Route path="/detail/:eventId" element={<DetailPage />} />
-          {/*Order*/}
-          <Route path="/order" element={<OrderPage />} />
         </Route>
 
         {/* PRIVATE ROUTE */}
         <Route element={<PrivateRoute />}>
-          {/* MAIN
-          <Route path="/" element={<LandingPage />} /> */}
+          {/* MAIN */}
+          <Route path="/" element={<LandingPage />} />
 
           {/* Payment */}
           <Route path="/payment" element={<Payment />} />
+          {/*Detail*/}
+          <Route path="/detail/:eventId" element={<DetailPage />} />
+          {/*Order*/}
+          <Route path="/order" element={<OrderPage />} />
           {/* Profile */}
           <Route path="/profile/edit-profile" element={<Profile />} />
           <Route path="/profile/updatepass" element={<UpdateProfile />} />
@@ -56,6 +54,13 @@ function App() {
           {/* <Route path="/manage-event" element={<ManageEvent />} /> */}
           <Route path="/create-event" element={<CreateEvent />} />
         </Route>
+
+        {/* MAIN */}
+        <Route path="/" element={<LandingPage />} />
+        {/*Detail*/}
+        <Route path="/detail/:eventId" element={<DetailPage />} />
+        {/*Order*/}
+        <Route path="/order" element={<OrderPage />} />
 
         {/* PAGE NOT FOUND */}
 
